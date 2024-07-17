@@ -1,7 +1,7 @@
 Spam Detector API
 ============
 
-Spam Detector is a simple tool for detecting spam in a text. It returns the spam score and the spam label.
+Spam Detector is a simple tool for detecting spam in a text. It utilize an email address or IP address to validate the given text against the spam database.
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 ![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
@@ -47,7 +47,7 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```
-query = {  "text": "Can you please spare some change?! Desperate!!! Send cash",  "email": "bankers@fre.323hotlain.net",  "ip": "122.180.184.182"}
+query = {  "text": "Can you please spare some change?! Desperate!!! Send cash",  "email": "bankers@fre.323hotlain.net",  "ip": "122.180.184.182" }
 ```
 
 ###### Simple Request
@@ -70,11 +70,11 @@ print(result)
     "likelySpam": true,
     "isDisposableEmail": false,
     "isIPBlacklisted": false,
-    "parsed": true,
     "ipDetails": {
       "country": "IN",
       "region": "DL"
-    }
+    },
+    "parsed": true
   }
 }
 ```
