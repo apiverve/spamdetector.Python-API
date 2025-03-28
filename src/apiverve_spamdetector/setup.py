@@ -1,15 +1,20 @@
 from setuptools import setup, find_packages
 
+import os
+lib_folder = os.path.dirname(os.path.realpath(__file__))
+requirements_file = os.path.join(lib_folder, 'requirements.txt')
+install_requires = ["requests >= 2.25.1", "setuptools >= 56.0.0"]
+if os.path.exists(requirements_file):
+    with open(requirements_file, 'r') as f:
+        install_requires = f.read().splitlines()
+
 setup(
     name='apiverve_spamdetector',
-    version='1.0.9',
+    version='1.1.9',
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[
-        'requests',
-        'setuptools'
-    ],
-    description='Spam Detector is a simple tool for detecting spam in a text. It returns the spam score and the spam label.',
+    install_requires=install_requires,
+    description='Spam Detector is a simple tool for detecting spam in a text. It utilize an email address or IP address to validate the given text against the spam database.',
     author='APIVerve',
     author_email='hello@apiverve.com',
     url='https://apiverve.com',
